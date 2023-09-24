@@ -13,7 +13,44 @@ const productSchema = new mongoose.Schema(
         precio:{
             type: Number,
             require: true
-        }
+        },
+        categoría:{
+            type: String,
+            require: true,
+        },
+        origen:{
+            type: String,
+            require: true,
+        },
+        cantidadDisponible:{
+            type: Number,
+            require: true,
+        },
+        proveedor:{
+            type: String,
+            require: true,
+        },
+        peso:{
+            type: Number,
+            require: true,
+        },
+        calidad:{
+            type: String,
+            require: true,
+        },
+        fechaLlegada:{
+            type: Date,
+            default: Date.now,
+            require: true,
+        },
+        masComprados:{
+            type: Number,
+            require: true,
+        },
+        favoritosCasa:{
+            type: Boolean,
+            require: true,
+        },
 
     }
 );
