@@ -2,15 +2,14 @@ const mongoose = require('mongoose');
 const productSchema = require('./Producto.model.js');
 
 const pedidoSchema = new mongoose.Schema({
-  idPedido: { 
-    type: String, required: true 
-  },
-  fechaPedido: { 
-    type: Date, default: Date.now 
-  },
   nombreCliente: {
     type: String,
   },
+  fechaPedido: { 
+    type: Date,
+    default: Date.now 
+  },
+  
   productos: [productoSchema],
 
   metodoPago: {
