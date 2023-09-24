@@ -44,7 +44,7 @@ exports.deleteProducto = async (req, res) => {
 
 
 exports.getProductoForPedido=async(req, res)=>{
-    const idProducto = req.params.id; // Obtén el ID del producto desde los parámetros de la solicitud
+    const idProducto = req.params.id;
   try {
     const producto = await Producto.findById(idProducto).select('nombre descripcion precio');
     if (!producto) {
@@ -55,3 +55,23 @@ exports.getProductoForPedido=async(req, res)=>{
     res.status(500).json({ mensaje: 'Error al obtener el producto', error });
   }
 }
+
+
+exports.putPrecioProducto = async (req, res) => {
+    try {
+      const idProducto = req.params.id;
+      const nuevoPrecio = req.body.precio;
+  
+      const producto = await Producto.findById(idProducto);
+      if (!producto) {
+        return res.status(404).json({ mensaje: 'Producto no encontrado' });
+      }
+  
+      producto.precio = nuevoPrecio;
+      await producto.save();
+  
+      res.status(200).json(producto);
+    } catch (error) {
+      res.status(500).json({ mensaje: 'Error al actualizar el precio del producto', error });
+    }
+  };
