@@ -10,7 +10,13 @@ const pedidoSchema = new mongoose.Schema({
     default: Date.now 
   },
   
-  productos: [productoSchema],
+  productos: [
+    {
+      nombre: String,
+      precio: Number,
+      cantidad: Number,
+    }
+  ],
 
   metodoPago: {
     type: String,
@@ -26,7 +32,6 @@ const pedidoSchema = new mongoose.Schema({
   },
 });
 
-// Crear el modelo del Pedido
 const Pedido = mongoose.model('Pedido', pedidoSchema);
 
-module.exports = Pedido;s
+module.exports = Pedido;
