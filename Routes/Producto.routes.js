@@ -8,6 +8,6 @@ router.get('/productos/:id', productoController.getProductobyId);
 router.get('/productosForPedido/:id', productoController.getProductoForPedido);
 router.delete('/productos/:id', productoController.deleteProducto);
 router.put('/productos/:id/precio', productoController.putPrecioProducto);
-
+router.get('/productosFavoritos', productoController.getProductosFavoritosCasa);
 
 module.exports= router;

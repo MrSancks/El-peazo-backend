@@ -75,3 +75,13 @@ exports.putPrecioProducto = async (req, res) => {
       res.status(500).json({ mensaje: 'Error al actualizar el precio del producto', error });
     }
   };
+
+  exports.getProductosFavoritosCasa = async (req, res) => {
+    try {
+      const productosFavoritos = await Producto.find({ favoritosCasa: true });
+      res.status(200).json(productosFavoritos);
+    } catch (error) {
+      res.status(500).json({ mensaje: 'Error al obtener los productos favoritos de casa', error });
+    }
+  };
+  
