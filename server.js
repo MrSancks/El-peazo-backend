@@ -7,6 +7,9 @@ const uri = "mongodb+srv://camilo:1234@peazo.ukoavzu.mongodb.net/?retryWrites=tr
 const routes = require('./Routes/Producto.routes.js')
 const Pedido = require('./Routes/Pedido.routes.js')
 
+
+
+
 mongoose.connect(uri);
 app.use(bodyParser.json());
 
